@@ -7,17 +7,12 @@ const sequelize_1 = require("sequelize");
 const dotenv_1 = __importDefault(require("dotenv"));
 const pg_1 = __importDefault(require("pg"));
 dotenv_1.default.config();
-const dbName = process.env.DB_NAME;
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASSWORD;
-const dbHost = process.env.DB_HOST;
-const dbDialect = process.env.DB_DIALECT;
-if (!dbName || !dbUser || !dbPassword || !dbHost || !dbDialect) {
-    throw new Error("One or more database environment variables are not defined");
+const postgresUrl = process.env.POSTGRES_URL;
+if (!postgresUrl) {
+    throw new Error("POSTGRES_URL environment variable is not defined");
 }
-const sequelize = new sequelize_1.Sequelize(dbName, dbUser, dbPassword, {
-    host: dbHost,
-    dialect: 'postgres',
+const sequelize = new sequelize_1.Sequelize(postgresUrl, {
+    dialect: "postgres",
     dialectModule: pg_1.default,
     logging: false,
 });
