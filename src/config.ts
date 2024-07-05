@@ -17,8 +17,8 @@ if (!dbName || !dbUser || !dbPassword || !dbHost || !dbDialect) {
 
 const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
-  dialect: dbDialect as any, 
-  dialectModule: pg,
+  dialect: dbDialect as any,
+  dialectModule: require("pg"),
   logging: false,
 });
 
