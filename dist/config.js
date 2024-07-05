@@ -7,7 +7,7 @@ const sequelize_1 = require("sequelize");
 const dotenv_1 = __importDefault(require("dotenv"));
 const pg_1 = __importDefault(require("pg"));
 dotenv_1.default.config();
-const postgresUrl = process.env.POSTGRES_URL;
+const postgresUrl = "postgres://default:pkMLPqsy1R5u@ep-frosty-dawn-a4g5za0q-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require";
 if (!postgresUrl) {
     throw new Error("POSTGRES_URL environment variable is not defined");
 }
