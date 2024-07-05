@@ -1,5 +1,7 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
+import pg from "pg";
+
 
 dotenv.config(); 
 
@@ -16,6 +18,7 @@ if (!dbName || !dbUser || !dbPassword || !dbHost || !dbDialect) {
 const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
   dialect: dbDialect as any, 
+  dialectModule: pg,
   logging: false,
 });
 
