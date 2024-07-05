@@ -17,7 +17,7 @@ if (!dbName || !dbUser || !dbPassword || !dbHost || !dbDialect) {
 }
 const sequelize = new sequelize_1.Sequelize(dbName, dbUser, dbPassword, {
     host: dbHost,
-    dialect: dbDialect,
+    dialect: 'postgres',
     dialectModule: pg_1.default,
     logging: false,
 });
