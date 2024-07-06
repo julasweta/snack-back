@@ -8,10 +8,6 @@ if (!postgresUrl) {
   throw new Error("POSTGRES_URL environment variable is not defined");
 }
 
-const sequelize = new Sequelize(postgresUrl, {
-  dialect: "postgres",
-  dialectModule: pg,
-  logging: false,
-});
+const sequelize = new Sequelize(postgresUrl);
 
 export default sequelize;
