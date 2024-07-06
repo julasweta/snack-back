@@ -10,6 +10,7 @@ if (!postgresUrl) {
 }
 
 const sequelize = new Sequelize(postgresUrl, {
+  dialect: "postgres",
   logging: false,
 });
 
