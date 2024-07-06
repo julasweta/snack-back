@@ -1,0 +1,12 @@
+# Exported from Render on 2024-07-06T11:31:21Z
+databases:
+- name: snack
+  databaseName: snack_9fzy
+  user: postgress
+  plan: free
+  region: virginia
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "16"
+version: "1"
