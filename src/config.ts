@@ -1,26 +1,18 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config(); // Завантажує змінні оточення з .env файлу
 
-//const postgresUrl = process.env.POSTGRES_URL;
-//console.log("POSTGRES_URL:", postgresUrl);
-
-/* if (!postgresUrl) {
-  throw new Error("POSTGRES_URL environment variable is not defined");
-} */
-//console.log("POSTGRES_URL: after", postgresUrl);
 
 const sequelize = new Sequelize(
-    "postgres://default:pkMLPqsy1R5u@ep-frosty-dawn-a4g5za0q-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+  `postgresql://postgress:GgrrROvO1tuJjxgc73PoJsclaJY6n2Mf@dpg-cq4i5mo8fa8c73fprar0-a.virginia-postgres.render.com/snack_9fzy`,
   {
-    dialect: "postgres",
-    logging: (sql, timing) => {
-      console.log("SQL Query:", sql); // Виводимо SQL запит
-      console.log("Execution time:", timing, "ms"); // Виводимо час виконання запиту
-      console.log("Environment Variables:", process.env); // Виводимо всі змінні середовища
+    dialectOptions: {
+      ssl: {
+        require: true, // Вимагати захищене з'єднання
+        rejectUnauthorized: false, // Відхиляти неавторизовані SSL сертифікати (необхідно в деяких середовищах)
+      },
     },
   }
 );
-
 export default sequelize;
